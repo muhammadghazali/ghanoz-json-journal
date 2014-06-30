@@ -17,7 +17,3 @@
 ## Format Penulisan
 
 1. Review format penulisan
-
-# Alamat e-mail bu Ulil
-
-ulilsz@yahoo.com
