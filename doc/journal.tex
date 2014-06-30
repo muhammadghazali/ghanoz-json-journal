@@ -39,10 +39,6 @@
 \institute{Teknik Informatika, Fakultas Teknik, Universitas Widyatama \\Cikutra No. 204 A Bandung,
 Jawa Barat, Indonesia 40124 \email{muhammad.ghazali@widyatama.ac.id}}
 
-%to remove your email just remove '\email{email address}'
-% you can also remove the thanks footnote by removing '\thanks{Thank you to...}'
-
-
 \maketitle
 
 \begin{abstract}
@@ -57,9 +53,9 @@ Kata kunci: Web API, JSON, Format Serialisasi Data
 \section{Pendahuluan}
 
 % menjelaskan obyek penelitian
-\onehalfspacing Dalam penelitian ini penulis membahas mengenai topik menarik tentang analisa unjuk kerja format serialisasi data JSON\footnote{Lihat bagian Landasan teori: JSON} dan XML\footnote{Lihat bagian Landasan teori: XML}. Hal yang dipelajari adalah untuk membuktikan bahwa data yang diserialisasi dalam format JSON memiliki ukuran data yang lebih kecil jika dibandingkan dengan data yang diserialisasi dalam format XML. Untuk membuktikan hal tersebut penulis mengambil studi kasus implementasi Web API untuk CampusLife \textit{mobile information directory application}.
+\onehalfspacing Dalam penelitian ini penulis membahas mengenai topik menarik tentang analisa unjuk kerja format serialisasi data JSON dan XML. Hal yang dipelajari adalah untuk membuktikan bahwa data yang diserialisasi dalam format JSON memiliki ukuran data yang lebih kecil jika dibandingkan dengan data yang diserialisasi dalam format XML. Untuk membuktikan hal tersebut penulis mengambil studi kasus implementasi Web API untuk CampusLife \textit{mobile information directory application}.
 
-Web API\footnote{Lihat bagian Landasan teori: Web API} dibangun dengan tujuan untuk membuka akses secara tidak langsung ke \textit{data store}\footnote{http://en.wikipedia.org/wiki/Data\_store} yang tersimpan di salah satu layanan \textit{Database as a Service}\footnote{http://en.wikipedia.org/wiki/Cloud\_database} yang digunakan oleh LLM di AppFog\footnote{http://www.appfog.com/}. Seluruh data-data \textit{event} yang tersimpan di \textit{data store} akan diolah oleh Web API menjadi data dengan format yang dapat dikonsumsi dengan mudah oleh aplikasi \textit{mobile} CampusLife. Proses pengolahan tersebut dinamakan serialisasi data\footnote{Lihat bagian Landasan teori: Serialiasi Data}.
+Web API dibangun dengan tujuan untuk membuka akses secara tidak langsung ke \textit{data store} yang tersimpan di salah satu layanan yang digunakan oleh LLM di AppFog \cite{db-as-a-service}\cite{data-store}. Seluruh data-data \textit{event} yang tersimpan di \textit{data store} akan diolah oleh Web API menjadi data dengan format yang dapat dikonsumsi dengan mudah oleh aplikasi \textit{mobile} CampusLife. Proses pengolahan tersebut dinamakan serialisasi data.
 
 \onehalfspacing Namun, hal yang menjadi fokus di penelitian ini bukanlah tentang implementasi Web API tersebut, melainkan tentang analisa unjuk kerja dari penerapan format serialisasi data ketika data dikirimkan dari Web API ke \textit{client}. Web API hanya akan dibangun sebagai pendukung untuk membantu penulis dalam menganalisa ukuran data yang diformat JSON dan XML ketika dikirimkan ke \textit{client}. Mulai dari bab ini dengan selanjutnya data-data yang yang dikirimkan dari Web API ke \textit{client} akan sering disebut \textit{resource}. 
 
@@ -95,7 +91,7 @@ Visualisasi dari tahapan yang dijelaskan di bagian sebelumnya dapat dilihat pada
 
 Penulis melakukan pembandingan antara JSON dan XML dalam hal ukuran data yang dihasilkan dan jumlah respon permintaan yang berhasil dikembalikan ketika Web API diakses oleh \textit{client}. Pembandingan akan dilakukan dengan menggunakan data yang sama dan jumlah detik yang digunakan saat melakukan pembandingan.
 
-Untuk melakukan hal ini penulis menggunakan Apache Benchmark\footnote{http://httpd.apache.org/docs/2.4/programs/ab.html}. Kakas tersebut akan bertugas mengirimkan permintaan Web API \textit{end point} daftar \textit{event}. Berikut adalah skenario pembandingan yang penulis lakukan:
+Untuk melakukan hal ini penulis menggunakan Apache Benchmark \cite{ab}. Kakas tersebut akan bertugas mengirimkan permintaan Web API \textit{end point} daftar \textit{event}. Berikut adalah skenario pembandingan yang penulis lakukan:
 
 \begin{enumerate}
   \item \textit{Empty Resource}. Melakukan pembandingan jumlah permintaan yang berhasil direspon dengan respon yang dikembalikan berisi \textit{resource} dengan setiap \textit{field} dari \textit{resource} diberi \textit{resource} kosong dengan setiap \textit{field} dari \textit{resource} diberi \textit{string} kosong
@@ -107,7 +103,7 @@ Hasil detail pembandingan dari masing-masing skenario tersebut dapat dilihat di 
 
 \subsection{Hasil Pembandingan Skenario Empty Resource}
 
-\onehalfspacing \textit{Empty Resource}. Melakukan pembandingan jumlah permintaan yang berhasil direspon dengan respon yang dikembalikan berisi "\textit{resource} kosong" dengan setiap \textit{field} dari \textit{resource} diberi \textit{string} kosong. Representasi dalam bentuk grafik\footnote{Grafik dibuat dengan menggunakan kakas gnuplot http://www.gnuplot.info/} dari hasil pembandingan tersebut dapat dilihat pada gambar \ref{benchmark-empty-resource}.
+\onehalfspacing \textit{Empty Resource}. Melakukan pembandingan jumlah permintaan yang berhasil direspon dengan respon yang dikembalikan berisi "\textit{resource} kosong" dengan setiap \textit{field} dari \textit{resource} diberi \textit{string} kosong. Representasi dalam bentuk grafik dari hasil pembandingan tersebut dapat dilihat pada gambar \ref{benchmark-empty-resource}.
 
 \begin{figure}[htp]
 \centering
@@ -187,6 +183,15 @@ Marinescu, Floyd dan Tilkov, Stefan. "Debate: JSON vs. XML as a data interchange
 
 \bibitem[3]{introducing-json}
 "Introducing JSON" \emph{JSON Official Website}. Web. 20 Januari 2013. http://www.json.org/
+
+\bibitem[4]{db-as-a-service}
+"Database as a service" \emph{Wikipedia}. Web. 20 Januari 2013. http://en.wikipedia.org/wiki/Cloud\_database
+
+\bibitem[5]{data-store}
+"Data Store" \emph{Wikipedia}. Web. 20 Januari 2013. http://en.wikipedia.org/wiki/Data\_store
+
+\bibitem[6]{ab}
+"Apache HTTP server benchmarking tool" \emph{Apache HTTP server benchmarking tool}. Web. 20 Januari 2013. http://httpd.apache.org/docs/2.4/programs/ab.html
 
 \end{thebibliography}
 
