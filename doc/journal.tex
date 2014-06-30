@@ -56,27 +56,22 @@ Kata kunci: Web API, JSON, Format Serialisasi Data
 
 \section{Pendahuluan}
 
-\subsection{Latar Belakang dan Masalah}
 % menjelaskan obyek penelitian
 \onehalfspacing Dalam penelitian ini penulis membahas mengenai topik menarik tentang analisa unjuk kerja format serialisasi data JSON\footnote{Lihat bagian Landasan teori: JSON} dan XML\footnote{Lihat bagian Landasan teori: XML}. Hal yang dipelajari adalah untuk membuktikan bahwa data yang diserialisasi dalam format JSON memiliki ukuran data yang lebih kecil jika dibandingkan dengan data yang diserialisasi dalam format XML. Untuk membuktikan hal tersebut penulis mengambil studi kasus implementasi Web API untuk CampusLife \textit{mobile information directory application}.
 
-\onehalfspacing CampusLife adalah aplikasi yang sedang dikembangkan oleh LayangLayang Mobile (LLM) untuk menyediakan informasi yang relevan kepada civitas kampus. Setiap informasi yang ditampilkan melalui aplikasi \textit{mobile} CampusLife merupakan data yang sudah diolah dan diambil dari Web API CampusLife. Saat ini LLM belum memiliki Web API dan penulis berniat untuk membangun Web API tersebut.
-
 Web API\footnote{Lihat bagian Landasan teori: Web API} dibangun dengan tujuan untuk membuka akses secara tidak langsung ke \textit{data store}\footnote{http://en.wikipedia.org/wiki/Data\_store} yang tersimpan di salah satu layanan \textit{Database as a Service}\footnote{http://en.wikipedia.org/wiki/Cloud\_database} yang digunakan oleh LLM di AppFog\footnote{http://www.appfog.com/}. Seluruh data-data \textit{event} yang tersimpan di \textit{data store} akan diolah oleh Web API menjadi data dengan format yang dapat dikonsumsi dengan mudah oleh aplikasi \textit{mobile} CampusLife. Proses pengolahan tersebut dinamakan serialisasi data\footnote{Lihat bagian Landasan teori: Serialiasi Data}.
 
-\newpage
 \onehalfspacing Namun, hal yang menjadi fokus di penelitian ini bukanlah tentang implementasi Web API tersebut, melainkan tentang analisa unjuk kerja dari penerapan format serialisasi data ketika data dikirimkan dari Web API ke \textit{client}. Web API hanya akan dibangun sebagai pendukung untuk membantu penulis dalam menganalisa ukuran data yang diformat JSON dan XML ketika dikirimkan ke \textit{client}. Mulai dari bab ini dengan selanjutnya data-data yang yang dikirimkan dari Web API ke \textit{client} akan sering disebut \textit{resource}. 
 
 % Pada bagian ini jelaskan rumusan masalah yang akan diteliti
-\subsection{Rumusan Masalah}
-\onehalfspacing Berdasarkan latar belakang masalah yang telah dipaparkan, maka masalah yang akan diteliti dalam penelitian ini dapat dirumuskan sebagai berikut:
+\onehalfspacing Adapun masalah yang diteliti dalam penelitian ini dapat dirumuskan sebagai berikut:
 \begin{enumerate}
   \item Seberapa kecil ukuran \textit{resource} yang diformat dalam JSON jika dibandingkan dengan ukuran \textit{resource} yang diformat dalam XML? 
   \item Bagaimana implikasi terhadap jumlah permintaan  \textit{resource} yang berhasil dikembalikan oleh Web API jika \textit{resource} diformat dalam JSON dan XML?
 \end{enumerate}
 
-\subsection{Metodologi}
-\onehalfspacing Adapun tahapan penelitian yang akan dilakukan oleh penulis adalah sebagai berikut:
+\section{Metodologi}
+\onehalfspacing Adapun tahapan penelitian yang dilakukan oleh penulis adalah sebagai berikut:
 \begin{enumerate}
   \item \textbf{Identifikasi masalah dan perumusan hipotesis}. Pada tahap ini penulis merumuskan masalah yang diteliti.
   \item \textbf{Pengujian format serialiasi JSON dan XML}. Pada tahap ini penulis melakukan pengujian serialisasi dengan membangun purwa-rupa Web API untuk mendukung proses pengujian serialiasi data dalam format JSON dan XML.
@@ -93,6 +88,8 @@ Visualisasi dari tahapan yang dijelaskan di bagian sebelumnya dapat dilihat pada
 \caption{Visualisasi Metodologi}
 \label{visualisasi-metodologi}
 \end{figure}
+
+\section{Penutup}
 
 \subsection{Kesimpulan}
 
